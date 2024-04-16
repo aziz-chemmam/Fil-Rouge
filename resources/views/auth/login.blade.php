@@ -11,12 +11,13 @@
           <button class="flex w-full justify-center rounded-3xl border-none bg-white p-1 text-black hover:bg-gray-200 sm:p-2"><img src="https://freesvg.org/img/1534129544.png" class="mr-2 w-6 object-fill" />Sign in with Google</button>
         </div>
         <div>
-          <fieldset class="border-t border-solid border-gray-600">
+          <fieldset class="border-t border-solid border-orange-700">
             <legend class="mx-auto px-2 text-center text-sm">Or login via our secure system</legend>
           </fieldset>
         </div>
         <div class="mt-10">
-          <form>
+          <form method="POST">
+            @csrf
             <div>
               <label class="mb-2.5 block font-extrabold" for="email">Email</label>
               <input type="email" id="email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="mail@user.com" />
@@ -34,7 +35,7 @@
               </div>
             </div>
             <div class="my-10">
-              <button class="w-full rounded-full bg-orange-600 p-5 hover:bg-orange-800">Login</button>
+              <button class="w-full rounded-full bg-orange-700 p-5 hover:bg-orange-800">Login</button>
             </div>
           </form>
         </div>

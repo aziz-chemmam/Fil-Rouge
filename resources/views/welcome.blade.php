@@ -25,8 +25,8 @@
                 <li class="hover:text-orange-700"><a href="">FAQ</a></li>
             </ul>
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
-                <button class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition"><a href="{{-- route('login') --}}"></a>Login</button>
-                <button class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100  hover:text-black transition"><a href="{{-- route('register') --}}"></a>Register</button>
+                <a href="{{ route('login') }}"><button class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
+                <a href="{{-- route('register') --}}"><button class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100  hover:text-black transition">Register</button></a>
 
             
         </nav>
