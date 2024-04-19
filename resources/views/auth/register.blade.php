@@ -35,19 +35,11 @@
                         <option class="bg-orange-700 text-white " value="admin">Admin</option>
                         <option class="bg-orange-700 text-white " value="user">User</option>
                         <option class="bg-orange-700 text-white " value="photographer">Photographer</option>
-                    
-                        
+                         
                 </select>
-                
               </div>
-            <div class="mt-4 flex w-full flex-col justify-between sm:flex-row">
-              <!-- Forgot password -->
-              <div>
-                <a href="#" class="text-sm text-orange-700 underline hover:text-gray-200">Forgot password?</a>
-              </div>
-            </div>
             <div class="my-10">
-              <button class="w-full rounded-xl bg-orange-700 p-5 hover:bg-orange-800">Login</button>
+              <button class="w-full rounded-xl bg-orange-700 p-5 hover:bg-orange-800">Register</button>
             </div>
           </form>
         </div>

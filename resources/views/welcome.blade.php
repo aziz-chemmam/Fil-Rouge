@@ -14,25 +14,29 @@
 
     {{-- navBar --}}
 
-    <div class="text-white ml-36 flex place-content-around  ">
-
+    <div class="text-white ml-36 flex place-content-around">
         <img src="{{ asset('image/logo.png') }}" class="w-24 h-24 mr-32" alt="">
-        <nav class="flex gap-96">
+        <nav class="flex gap-64">
             <ul class="flex mt-8 gap-52  font-bold  ">
-                <li class="text-orange-700"><a href="">HOME</a></li>
-                <li class="hover:text-orange-700"><a href="">GALLERY</a></li>
-                <li class="hover:text-orange-700"><a href="">ABOUT</a></li>
-                <li class="hover:text-orange-700"><a href="">FAQ</a></li>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">HOME</a>
+                </li>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
+                        href="#">GALLERY</a></li>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">ABOUT</a>
+                </li>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">FAQ</a>
+                </li>
             </ul>
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
-                <a href="{{ route('login') }}"><button class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
-                <a href="{{-- route('register') --}}"><button class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100  hover:text-black transition">Register</button></a>
+                <a href="{{ route('login') }}"><button
+                        class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
+                <a href="{{-- route('register') --}}"><button
+                        class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100 ease-in-out duration-200 hover:text-black transition">Register</button></a>
 
-            
+
         </nav>
-      
 
-    </div>
+
     </div>
 
     {{-- introduction --}}
@@ -41,10 +45,11 @@
             <img src="{{ asset('image/home imag.jpg') }}" class="h-[50rem] " alt="">
             <div>
                 <div class=" bg-orange-700 w-[50rem] mt-[15rem] rounded-3xl flex justify-center h-56">
-                    <h1 class="mt-4 text-center text-base text-white">
+                    <h1 class="mt-4 font-serif	 text-center text-base text-white">
                         Welcome to a world where moments are frozen in time, emotions are captured in vivid detail,
                         and<br>
-                        stories come to life through the lens. At Goat Studio's Photography, we believe in the magic
+                        stories come to life through the lens. At <span class="text-black text-lg">Goat Studio's</span>
+                        Photography, we believe in the magic
                         of<br>
                         photography, where each click of the shutter paints a unique canvas of memories. Whether
                         it's<br>
@@ -57,8 +62,10 @@
                         fleeting moments into timeless treasures.
                     </h1>
                 </div>
-                <div class="bg-orange-700 p-2 w-24 px-5 ml-[42%] mt-6 text-white">
-                    <button type="submit">Explore</button>
+                <div class=" ml-[42%] mt-6 ">
+                    <button
+                        class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-500 ease-in-out rounded-xl w-24 px-5 p-2 text-white"
+                        type="submit">Explore</button>
 
                 </div>
             </div>
@@ -67,7 +74,40 @@
 
     </div>
 
+    {{-- last upload --}}
+    <section class="flex flex-col gap-14">
+        <div class="flex justify-center">
+            <h1 class=" uppercase underline font-bold decoration-orange-700 underline-offset-8 text-3xl text-white">
+                Last Upload
+            </h1>
+        </div>
+        <div class="flex text-white justify-around">
+            <div class="group relative">
+                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
+                <p class="absolute top-0 left-0 hidden group-hover:block bg-black bg-opacity-50 text-white p-2">casa</p>
+            </div>
+            <div>
+                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
+                <p class="flex justify-center">localisation</p>
+            </div>
+            <div>
+                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
+                <p class="flex justify-center">localisation</p>
+            </div>
+            <div>
+                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
+                <p class="flex justify-center">localisation</p>
+            </div>
+            <div>
+                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
+                <p class="flex justify-center">localisation</p>
+            </div>
+        </div>
+    </section>
 
+    {{-- footer --}}
+
+    @extends('inc.footer')
 
 </body>
 

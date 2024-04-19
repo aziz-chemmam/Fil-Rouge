@@ -47,11 +47,11 @@ class AuthController extends Controller
         if (Auth::attempt($login)) {
             $user = Auth::user();
             if ($user->role === 'admin') {
-                return view('admin.hmoe');
+                return redirect('/admin');
             } else if ($user->role === 'user') {
-                return view('user.home');
+                return redirect('/user');
             } else if ($user->role === 'photographer') {
-                return view('photographer.home');
+                return redirect('/photographe');
             }
         }
         return redirect()->back()->with('success', 'email or password is incorrect!');

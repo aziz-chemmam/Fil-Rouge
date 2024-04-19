@@ -3,7 +3,10 @@
 <div class="relative flex h-full w-full">
     <div class="h-screen w-1/2 bg-black">
       <div class="mx-auto flex h-full w-2/3 flex-col justify-center text-white xl:w-1/2">
-        <div>
+        <div class="flex flex-col gap-12 ">
+            <p class="text-[2.5rem] font-bold ml-[12.5rem] text-orange-700">LOGIN</p>
+          </div>
+        {{-- <div>
           <p class="text-2xl">Login|</p>
           <p>please login to continue|</p>
         </div>
@@ -14,24 +17,24 @@
           <fieldset class="border-t border-solid border-orange-700">
             <legend class="mx-auto px-2 text-center text-sm">Or login via our secure system</legend>
           </fieldset>
-        </div>
+        </div> --}}
         <div class="mt-10">
           <form method="POST">
             @csrf
             <div>
-              <label class="mb-2.5 block font-extrabold" for="email">Email</label>
-              <input type="email" id="email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="mail@user.com" />
-            </div>
-            <div class="mt-4">
-              <label class="mb-2.5 block font-extrabold" for="email">Password</label>
-              <input type="password" id="email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow" />
-            </div>
+                <label class="mb-2.5 block text-orange-700 font-extrabold" for="email">Email</label>
+                <input name="email" type="email" id="email" class="inline-block w-full rounded-xl bg-white p-2.5 leading-none text-black " />
+              </div>
+              <div class="mt-4">
+                <label class="mb-2.5 block text-orange-700 font-extrabold" for="password">Password</label>
+                <input name="password" type="password" id="password" class="inline-block w-full rounded-xl bg-white text-orange-700 p-2.5 leading-none " />
+              </div>
             <div class="mt-4 flex w-full flex-col justify-between sm:flex-row">
               <!-- Remember me -->
               <div><input type="checkbox" id="remember" /><label for="remember" class="mx-2 text-sm">Remember me</label></div>
               <!-- Forgot password -->
               <div>
-                <a href="#" class="text-sm hover:text-gray-200">Forgot password</a>
+                <a href="#" class="text-sm text-orange-700 underline hover:text-gray-200">Forgot password?</a>
               </div>
             </div>
             <div class="my-10">
