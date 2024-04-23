@@ -19,6 +19,11 @@ class AuthServices implements AuthServiceInterface {
 
     }
 
+    public function login(request $request)
+    {
+       return $this->authRepository->login($request);
+    }
+
 }
 
 ?>

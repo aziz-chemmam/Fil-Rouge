@@ -19,13 +19,9 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
     public function __construct(UploadApi $uploadApi){
         $this->uploadApi = $uploadApi;
         $this->cloudinary = new Cloudinary([
-            'cloud' => [
-                'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
-                'url' => env('CLOUDINARY_URL'),
-                'api_key' => env('CLOUDINARY_API_KEY'),
-                'api_secret' => env('CLOUDINARY_API_SECRET'),
-                'secure' => true,
-            ],
+                'cloud_name' => env('dn17yokxs'),
+                'api_key' => env('624157183274298'),
+                'api_secret' => env('sHU3faM4TP5XWEieHqrj0X7hmNM'),
         ]);
     }
 

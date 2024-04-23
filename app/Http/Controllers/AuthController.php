@@ -27,7 +27,7 @@ class AuthController extends Controller
 
     public function create(request $request)
     {
-        return $this->authService->create($request);
+         $this->authService->create($request);
         return redirect()->route('login')->with('success', 'Account Created');
 
 
@@ -41,17 +41,6 @@ class AuthController extends Controller
 
     public function login(request $request)
     {
-        $login = $request->only('email', 'password');
-        if (Auth::attempt($login)) {
-            $user = Auth::user();
-            if ($user->role === 'admin') {
-                return redirect('/admin');
-            } else if ($user->role === 'user') {
-                return redirect('/user');
-            } else if ($user->role === 'photographer') {
-                return redirect('/photographe');
-            }
-        }
-        return redirect()->back()->with('success', 'email or password is incorrect!');
+       return $this->authService->login($request);
     }
 }

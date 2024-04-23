@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(AuthServiceInterface::class, AuthServices::class);
         $this->app->bind(AuthReposetorieInterface::class, AuthReposetorie::class);
+        
 
 
     }
