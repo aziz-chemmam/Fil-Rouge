@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\Interfaces\AuthServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
 class AuthController extends Controller
 {
+
+    protected $authService;
+
+    public function __construct(AuthServiceInterface $authService){
+        $this->authService = $authService;
+
+    }
+
+
     public function register()
     {
         return view('auth.register');
@@ -17,22 +27,10 @@ class AuthController extends Controller
 
     public function create(request $request)
     {
-        $validation = $request->validate([
-            'fname' => 'required|string',
-            'lname' => 'required|string',
-            'email' => 'required|string',
-            'password' => 'required|string|min:8',
-            'role' => 'required|string',
-        ]);
-
-        $user = new User();
-        $user->fname = request('fname');
-        $user->lname = request('lname');
-        $user->email = request('email');
-        $user->password = request('password');
-        $user->role = request('role');
-        $user->save();
+        return $this->authService->create($request);
         return redirect()->route('login')->with('success', 'Account Created');
+
+
     }
 
 

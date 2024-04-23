@@ -22,6 +22,11 @@ Route::get('/', function () {
 })->name('home');
 
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
                     //auth routes
 Route::get('/login',[AuthController::class, 'loginView'])->name('login');
 Route::post('/login',[AuthController::class, 'login']);
@@ -40,3 +45,4 @@ Route::get('/user',[UserController::class,'view']);
 
                     //photographe route
 Route::get('/photographe',[PhotographerrController::class,'view']);
+Route::post('/photographe',[PhotographerrController::class,'create']);

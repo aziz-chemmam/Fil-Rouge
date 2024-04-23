@@ -22,7 +22,7 @@
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
                         href="#">GALLERY</a></li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">ABOUT</a>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="{{ route('about') }}">ABOUT</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">FAQ</a>
                 </li>
@@ -64,7 +64,7 @@
                 </div>
                 <div class=" ml-[42%] mt-6 ">
                     <button
-                        class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-500 ease-in-out rounded-xl w-24 px-5 p-2 text-white"
+                        class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl w-24 px-5 p-2 text-white"
                         type="submit">Explore</button>
 
                 </div>

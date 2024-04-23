@@ -1,14 +1,12 @@
 <?php
-
-namespace App\Repositories\Interfaces;
+namespace App\Services\Interfaces;
 
 use Illuminate\Http\Request;
 
-interface AuthReposetorieInterface{
-
+interface AuthServiceInterface{
+    
     public function create(Request $request);
 
 }
-
 
 ?>
