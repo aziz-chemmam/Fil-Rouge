@@ -89,10 +89,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{-- @foreach ($publication as $publications ) --}}
                         <tr class="border-b text-white bg-black">
                             <th scope="row"
                                 class="px-6 py-4 font-medium  dark:text-white">
-                                Apple MacBook Pro 17"
+                                {{-- {{ $publications->name }} --}}
                             </th>
                             <td class="px-6 py-4">
                                 Silver
@@ -109,15 +110,16 @@
                             </td>
                         </tr>
                     </tbody>
+                    {{-- @endforeach --}}
                 </table>
             </div>
             <div class="w-full">
-                <form method="POST" class="bg-orange-700 p-6 rounded-lg shadow-md">
+                <form method="POST" action="{{ route('createPublication') }}" class="bg-orange-700 p-6 rounded-lg shadow-md" enctype="multipart/form-data">
                     @csrf
                     <select id="underline_select" name="categorie_id"
                         class="block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
                         <option selected disabled>Choix de Categorie</option>
-                        <option value="US">United States</option>
+                        <option value="1">1</option>
                     </select>
 
                     <label for="file" class="block mb-2 text-sm font-medium text-white">Upload file</label>

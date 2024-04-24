@@ -3,10 +3,11 @@
 namespace App\Repositories;
 
 use App\Models\Publication;
-use App\Repositories\Interfaces\PhotographeRepoInterfaces;
+use Illuminate\Http\Request;
 use Cloudinary\Api\Upload\UploadApi;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use App\Repositories\Interfaces\PhotographeRepoInterfaces;
 
 class PhotographeReposetorie implements PhotographeRepoInterfaces
 {
@@ -25,24 +26,25 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         ]);
     }
 
-    public function createPublication(array $data)
+    public function createPublication(Request $request)
     {
         $user_id = Auth::user()->id;
-
+    
         $publication = new Publication();
         $publication->user_id = $user_id;
-        $publication->description = $data['description'];
-        $publication->categorie_id = $data['categorie_id'];
-
-        if(isset($data['image'])){
-            $image = $this->uploadApi->upload($data['image']->getRealPath(), [
-                'folder' => 'movies/images',
-                'public_id' => uniqid(),
+        $publication->description = $request->input('description');
+        $publication->categorie_id = $request->input('categorie_id');
+    
+        if ($request->hasFile('image')) {
+            $uploadedImage = Cloudinary::upload($request->file('image')->getRealPath(), [
+                'folder' => 'public/photo',
             ]);
-            $publication->image = $image['secure_url'];
+    
+            $publication->image = $uploadedImage->getSecurePath();
         }
-
+    
         $publication->save();
-        return $publication;
-    } 
+        
+    }
+    
 }

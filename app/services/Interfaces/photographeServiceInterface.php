@@ -2,9 +2,11 @@
 
 namespace App\Services\Interfaces;
 
+use Illuminate\Http\Request;
+
 interface  photographeServiceInterface {
 
-    public function createPublication(array $data);
+    public function createPublication(Request $request);
 
 }
 

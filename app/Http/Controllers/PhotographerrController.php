@@ -3,38 +3,28 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Publication;
+use App\Services\Interfaces\photographeServiceInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class PhotographerrController extends Controller
 {
+    protected $photographerReposetorie;
+
+
+    public function __construct(photographeServiceInterface $photographeServiceInterface){
+        $this->photographerReposetorie = $photographeServiceInterface;
+    }
+
     public function view(){
         return view('photographer.photographe');
     }
 
-
-
-    public function create(Request $request){
-
-        $user_id = Auth::user()->id;
- 
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/image');
-            $imageName = time() . '.' . $request->image->extension();
-            $request->file('image')->storeAs('public/image', $imageName);
-            
-           $publication = Publication::create([
-            'user_id' => $user_id,
-                'image' => $imagePath,
-                'description' => $request->input('description'),
-                'categorie_id' => $request->input('categorie_id'),
-                
-           ]);
-           $publication->save();
-           return redirect()->back();
-
-        }
+    public function createPublication(Request $request){
+        $this->photographerReposetorie->createPublication($request);
+        return redirect()->back();
 }
+
+    
+
 }
