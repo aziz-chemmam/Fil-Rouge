@@ -24,7 +24,24 @@ class PhotographerrController extends Controller
         $this->photographerReposetorie->createPublication($request);
         return redirect()->back();
 }
+     public function getPublication(){
+        $publication = $this->photographerReposetorie->getPublication();
+        return view('photographer.photographe',compact('publication'));
+    }
 
-    
+    public function editPublication($id){
+        $publication = $this->photographerReposetorie->editPublication($id);
+        return view('photographer.editDashboard' , compact('publication'));
+    }
+
+    public function updatePublication(Request $request, $id){
+        $publication = $this->photographerReposetorie->updatePublication($request, $id);
+        return redirect('/photographe');
+    }
+
+    public function deletePublication($id){
+        $publication = $this->photographerReposetorie->deletePublication($id);
+        return redirect()->back()->with('success', 'Publication deleted successfully');
+    }
 
 }

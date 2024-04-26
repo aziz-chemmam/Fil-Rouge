@@ -23,6 +23,9 @@ class AuthServices implements AuthServiceInterface {
     {
        return $this->authRepository->login($request);
     }
+    public function logout(){
+        return $this->authRepository->logout();
+    }
 
 }
 

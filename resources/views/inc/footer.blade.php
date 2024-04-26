@@ -51,8 +51,14 @@
 
         </div>
     </div>
-    <div class="w-full bg-black/5 p-4 text-center">
-        © 2024 Copyright:
+    <div class="w-full bg-black/5 p-4 flex flex-col text-center">
+        <div>
+            © 2024 Copyright:
         <a href="{{ route('home') }}">Goat Studio's </a>
+        </div>
+        <div>
+            <a href="{{ route('register') }}" class="hover:underline ">Register</a>
+        </div>
       </div>
+   
 </footer>

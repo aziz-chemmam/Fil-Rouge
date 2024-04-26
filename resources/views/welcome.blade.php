@@ -30,7 +30,7 @@
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
                 <a href="{{ route('login') }}"><button
                         class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
-                <a href="{{-- route('register') --}}"><button
+                <a href="{{ route('register')  }}"><button
                         class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100 ease-in-out duration-200 hover:text-black transition">Register</button></a>
 
 

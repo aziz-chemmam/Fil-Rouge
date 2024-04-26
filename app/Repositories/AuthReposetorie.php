@@ -30,7 +30,8 @@ class AuthReposetorie implements AuthReposetorieInterface
         $user->save();
     }
 
-    public function login(request $request){
+    public function login(request $request)
+    {
         $login = $request->only('email', 'password');
         if (Auth::attempt($login)) {
             $user = Auth::user();
@@ -42,5 +43,10 @@ class AuthReposetorie implements AuthReposetorieInterface
                 return redirect('/photographe');
             }
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
     }
 }

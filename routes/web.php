@@ -44,5 +44,12 @@ Route::get('/user',[UserController::class,'view']);
 
 
                     //photographe route
-Route::get('/photographe',[PhotographerrController::class,'view']);
+Route::get('/photographe',[PhotographerrController::class,'getPublication']);
 Route::post('/photographe',[PhotographerrController::class,'createPublication'])->name('createPublication');
+
+
+Route::get('/publication/{id}',[PhotographerrController::class,'editPublication'])->name('editPublication');
+Route::put('/publication/{id}', [PhotographerrController::class, 'updatePublication'])->name('updatePublication');
+Route::delete('/publication/{id}', [PhotographerrController::class, 'deletePublication'])->name('deletePublication');
+
+

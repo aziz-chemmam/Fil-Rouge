@@ -8,6 +8,7 @@ interface AuthReposetorieInterface{
 
     public function create(Request $request);
     public function login(Request $request);
+    public function logout();
 
 }
 
