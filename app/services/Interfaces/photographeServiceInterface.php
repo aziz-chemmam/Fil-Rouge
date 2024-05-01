@@ -12,6 +12,7 @@ interface  photographeServiceInterface {
     public function editPublication($id);
     public function updatePublication(Request $request , $id);
     public function deletePublication($id);
+    public function lastAplouad();
 
 
 }

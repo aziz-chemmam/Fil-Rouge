@@ -13,7 +13,7 @@ interface PhotographeRepoInterfaces{
     public function updatePublication(Request $request , $id);
 
     public function deletePublication($id);
-
+    public function lastAplouad();
 
 }
 ?>

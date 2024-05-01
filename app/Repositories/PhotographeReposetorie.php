@@ -33,6 +33,7 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         $request->validate([
 
             'description' => 'required',
+            'localisation' => 'required',
             'categorie_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
@@ -43,6 +44,7 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         $publication = new Publication();
         $publication->user_id = $user_id;
         $publication->description = $request->input('description');
+        $publication->localisation = $request->input('localisation');
         $publication->categorie_id = $request->input('categorie_id');
 
         if ($request->hasFile('image')) {
@@ -73,10 +75,12 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         $publication = Publication::findOrFail($id);
         $request->validate([
             'description' => 'required',
+            'localisation' => 'required',
             'categorie_id' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,dng',
         ]);
         $publication->description = $request->input('description');
+        $publication->localisation = $request->input('localisation');
         $publication->categorie_id = $request->input('categorie_id');
         if ($request->hasFile('image')) {
             $uploadedImage = Cloudinary::upload($request->file('image')->getRealPath(), [
@@ -88,8 +92,11 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
     }
 
     public function deletePublication($id){
-        $publication = Publication::findOrFail($id);
+        $publication = Publication::find($id);
         $publication->delete();
     }
-
+    public function lastAplouad(){
+        $publication = Publication::latest()->take(5)->get();
+        return $publication;
+    }
 }

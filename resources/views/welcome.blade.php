@@ -22,7 +22,8 @@
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
                         href="#">GALLERY</a></li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="{{ route('about') }}">ABOUT</a>
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
+                        href="{{ route('about') }}">ABOUT</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">FAQ</a>
                 </li>
@@ -30,7 +31,7 @@
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
                 <a href="{{ route('login') }}"><button
                         class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
-                <a href="{{ route('register')  }}"><button
+                <a href="{{ route('register') }}"><button
                         class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100 ease-in-out duration-200 hover:text-black transition">Register</button></a>
 
 
@@ -77,33 +78,23 @@
     {{-- last upload --}}
     <section class="flex flex-col gap-14">
         <div class="flex justify-center">
-            <h1 class=" uppercase underline font-bold decoration-orange-700 underline-offset-8 text-3xl text-white">
+            <h1 class="uppercase underline font-bold decoration-orange-700 underline-offset-8 text-3xl text-white">
                 Last Upload
             </h1>
         </div>
         <div class="flex text-white justify-around">
-            <div class="group relative">
-                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
-                <p class="absolute top-0 left-0 hidden group-hover:block bg-black bg-opacity-50 text-white p-2">casa</p>
-            </div>
-            <div>
-                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
-                <p class="flex justify-center">localisation</p>
-            </div>
-            <div>
-                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
-                <p class="flex justify-center">localisation</p>
-            </div>
-            <div>
-                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
-                <p class="flex justify-center">localisation</p>
-            </div>
-            <div>
-                <img src="{{ asset('image/home2.jpg') }}" class="h-[30rem] w-[15rem]" alt="">
-                <p class="flex justify-center">localisation</p>
-            </div>
+            @foreach ($publication as $publicationItem)
+                <div class="group relative">
+                    <div class="relative">
+                        <img src="{{ $publicationItem->image }}" class="h-[25rem] w-[15rem] rounded-lg shadow-lg" alt="">
+                        <p class="absolute bottom-0 left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black bg-opacity-40 text-white p-1 rounded-md">
+                            {{ $publicationItem->localisation }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
+    
 
     {{-- footer --}}
 

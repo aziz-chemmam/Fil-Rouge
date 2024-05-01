@@ -15,6 +15,7 @@ class Publication extends Model
         'user_id',
         'categorie_id',
         'description',
+        'localisation',
         'image',
         'created_at',
         'updated_at'

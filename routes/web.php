@@ -17,14 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
+Route::get('/',[PhotographerrController::class , 'lastAplouad'])->name('home');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+
+// Route::get('/admin',function (){
+//     return view('admin.home');
+// });
 
 
                     //auth routes
@@ -35,8 +38,6 @@ Route::post('/register',[AuthController::class, 'create']);
 
 
                     // admin route 
-Route::get('/admin' , [AdminController::class,'view']);
-
 
                     // user route
 Route::get('/user',[UserController::class,'view']);

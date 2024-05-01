@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('categorie_id')->constrained('categories');
             $table->string('description');
+            $table->string('localisation');
             $table->string('image');
             $table->timestamps();
         });

@@ -31,7 +31,9 @@ class photographeServices implements photographeServiceInterface{
     public function deletePublication($id){
         return $this->photographerReposetorie->deletePublication($id);
     }
-
+    public function lastAplouad(){
+        return $this->photographerReposetorie->lastAplouad();
+    }
 }
 
 ?>

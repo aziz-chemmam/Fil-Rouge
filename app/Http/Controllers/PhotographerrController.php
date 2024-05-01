@@ -44,4 +44,9 @@ class PhotographerrController extends Controller
         return redirect()->back()->with('success', 'Publication deleted successfully');
     }
 
+    public function lastAplouad(){
+        $publication = $this->photographerReposetorie->lastAplouad();
+        return view('welcome',compact('publication'));
+    }
+
 }
