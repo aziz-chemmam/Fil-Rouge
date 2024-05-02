@@ -177,27 +177,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($user as $user)
+                        <tr class="border-b text-white bg-black ">
+                            <th scope="row" class="px-6 py-4 font-medium">
+                                {{ $user->lname }}
+                            </th>
+                            <td class="px-6 py-4">
 
-                    <tr class="border-b text-white bg-black ">
-                        <th scope="row" class="px-6 py-4 font-medium">
+                            </td>
+                            <td class="px-6 py-4">
 
-                        </th>
-                        <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
 
-                        </td>
-                        <td class="px-6 py-4">
-
-                        </td>
-                        <td class="px-6 py-4">
-
-                        </td>
-                        <td class="px-6 py-4 flex gap-5">
-                            <a href="" id="btn"
-                                class="font-medium text-green-600 hover:underline">Edit</a>
-                            <a href="" class="font-medium text-red-600 hover:underline">Delete</a>
-                        </td>
-                    </tr>
-
+                            </td>
+                            <td class="px-6 py-4 flex gap-5">
+                                <a href="" id="btn"
+                                    class="font-medium text-green-600 hover:underline">Edit</a>
+                                <a href="" class="font-medium text-red-600 hover:underline">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

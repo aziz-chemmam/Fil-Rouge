@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PhotographerrController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,39 +19,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[PhotographerrController::class , 'lastAplouad'])->name('home');
+Route::get('/', [PhotographerrController::class, 'lastAplouad'])->name('home');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
 
-// Route::get('/admin',function (){
-//     return view('admin.home');
-// });
-
-
-                    //auth routes
-Route::get('/login',[AuthController::class, 'loginView'])->name('login');
-Route::post('/login',[AuthController::class, 'login']);
-Route::get('/register',[AuthController::class, 'register'])->name('register');
-Route::post('/register',[AuthController::class, 'create']);
-
-
-                    // admin route 
-
-                    // user route
-Route::get('/user',[UserController::class,'view']);
+Route::get('/Gallery',[GalleryController::class,'imageDesplay'])->name('Gallery');
 
 
 
-                    //photographe route
-Route::get('/photographe',[PhotographerrController::class,'getPublication']);
-Route::post('/photographe',[PhotographerrController::class,'createPublication'])->name('createPublication');
+
+//auth routes
+Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'create']);
 
 
-Route::get('/publication/{id}',[PhotographerrController::class,'editPublication'])->name('editPublication');
-Route::put('/publication/{id}', [PhotographerrController::class, 'updatePublication'])->name('updatePublication');
-Route::delete('/publication/{id}', [PhotographerrController::class, 'deletePublication'])->name('deletePublication');
+// admin route 
+
+Route::middleware(['role:admin'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'getUsers']);
+
+});
+
+// user route
+Route::get('/user', [UserController::class, 'view']);
 
 
+
+//photographe route
+Route::middleware(['role:photographer'])->group(function () {
+    Route::get('/photographe', [PhotographerrController::class, 'getPublication']);
+    Route::post('/photographe', [PhotographerrController::class, 'createPublication'])->name('createPublication');
+});
+
+
+Route::get('/publication/{id}', [PhotographerrController::class, 'editPublication'])->name('editPublication');
+Route::put('/publication/update/{id}', [PhotographerrController::class, 'updatePublication'])->name('updatePublication');
+Route::get('/publication/delete/{id}', [PhotographerrController::class, 'deletePublication'])->name('deletePublication');
+    

@@ -14,8 +14,11 @@
                 <option value="1">1</option>
             </select>
             <label for="file" class="block mb-2 text-sm font-medium text-white">Upload file</label>
-                    <input type="file"  id="file" name="image"  value="{{ $publication->image }}"
-                        class= "block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
+            <input type="file" id="file" name="image" value="{{ $publication->image }}"
+                class= "block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
+            <label for="localisation" class="block mb-2 text-sm font-medium text-white">Localisation</label>
+            <input type="text" id="localisation" name="localisation" placeholder="ville,paye"
+                class="block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
             <label for="message" class="block mb-2 text-sm font-medium text-white">Ajouter une
                 description</label>
             <textarea id="message" name="description" rows="4"

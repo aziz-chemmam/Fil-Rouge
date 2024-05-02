@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body class="bg-black">
@@ -21,7 +21,7 @@
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">HOME</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
-                        href="#">GALLERY</a></li>
+                        href="{{ route('Gallery') }}">GALLERY</a></li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
                         href="{{ route('about') }}">ABOUT</a>
                 </li>
@@ -86,7 +86,7 @@
             @foreach ($publication as $publicationItem)
                 <div class="group relative">
                     <div class="relative">
-                        <img src="{{ $publicationItem->image }}" class="h-[25rem] w-[15rem] rounded-lg shadow-lg" alt="">
+                        <img src="{{ $publicationItem->image }}" class="h-[25rem] w-[15rem] object-cover rounded-lg shadow-lg" alt="">
                         <p class="absolute bottom-0 left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black bg-opacity-40 text-white p-1 rounded-md">
                             {{ $publicationItem->localisation }}</p>
                     </div>

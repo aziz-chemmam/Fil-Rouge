@@ -74,9 +74,9 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
     {
         $publication = Publication::findOrFail($id);
         $request->validate([
-            'description' => 'required',
-            'localisation' => 'required',
-            'categorie_id' => 'required',
+            'description' => 'string',
+            'localisation' => 'string',
+            'categorie_id' => 'string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg,dng',
         ]);
         $publication->description = $request->input('description');
