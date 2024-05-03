@@ -18,7 +18,7 @@
         <img src="{{ asset('image/logo.png') }}" class="w-24 h-24 mr-32" alt="">
         <nav class="flex gap-64">
             <ul class="flex mt-8 gap-52  font-bold  ">
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">HOME</a>
+                <li class="hover:text-orange-700 ease-in-out duration-300  active:text-white"><a href="#">HOME</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
                         href="{{ route('Gallery') }}">GALLERY</a></li>
@@ -45,39 +45,35 @@
         </nav>
     </div>
     {{-- introduction --}}
-    <div class="mt-10 flex justify-center ">
-        <div class="flex justify-between gap-10  h-full">
-            <img src="{{ asset('image/home imag.jpg') }}" class="h-[50rem] " alt="">
+    <div class="mt-10 flex justify-center">
+        <div class="flex justify-between gap-10">
             <div>
-                <div class=" bg-orange-700 w-[50rem] mt-[15rem] rounded-3xl flex justify-center h-56">
-                    <h1 class="mt-4 font-serif	 text-center text-base text-white">
-                        Welcome to a world where moments are frozen in time, emotions are captured in vivid detail,
-                        and<br>
-                        stories come to life through the lens. At <span class="text-black text-lg">Goat Studio's</span>
-                        Photography, we believe in the magic
-                        of<br>
-                        photography, where each click of the shutter paints a unique canvas of memories. Whether
-                        it's<br>
-                        the soft glow of a golden sunset, the joy in a child's laughter, or the elegance of a loving<br>
-                        couple's embrace, we specialize in turning ordinary moments into extraordinary masterpieces.<br>
-                        Join us on a visual journey where images speak volumes, and let our photographs weave tales
-                        of<br>
-                        beauty, passion, and authenticity. Explore our portfolio, and discover how we transform
-                        life's<br>
-                        fleeting moments into timeless treasures.
+                <img src="{{ asset('image/home imag.jpg') }}" class="h-[50rem]" alt="">
+            </div>
+            <div class="flex flex-col justify-center">
+                <div class="bg-orange-700 w-[50rem] rounded-3xl p-8">
+                    <h1 class="font-serif flex justify-center text-3xl text-white mb-8">
+                        Welcome to Goat Studio's Photography
                     </h1>
-                </div>
-                <div class=" ml-[42%] mt-6 ">
-                    <button
-                        class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl w-24 px-5 p-2 text-white"
-                        type="submit">Explore</button>
-
+                    <p class="text-white text-center text-lg mb-6">
+                        Capture the essence of life through our lens. Our passion for photography turns ordinary moments into extraordinary masterpieces. Whether it's the soft glow of a sunset, the laughter of children, or the love shared between couples, we freeze these moments in time.
+                    </p>
+                    <p class="text-white text-center text-lg mb-6">
+                        Join us on a visual journey where images speak volumes and let our photographs weave tales of beauty, passion, and authenticity. Explore our portfolio and discover how we transform life's fleeting moments into timeless treasures.
+                    </p>
+                   <div class="flex justify-center">
+                    <button class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl px-8 py-3 text-white">
+                        Explore
+                    </button>
+                   </div>
                 </div>
             </div>
-            <img src="{{ asset('image/home2.jpg') }}" alt="">
+            <div>
+                <img src="{{ asset('image/home2.jpg') }}" alt="">
+            </div>
         </div>
-
     </div>
+    
 
     {{-- last upload --}}
     <section class="flex flex-col gap-14">

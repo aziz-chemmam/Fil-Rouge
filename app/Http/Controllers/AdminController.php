@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function getUsers(){
         $user = $this->adminReposetorie->getUsers();
-        return view('admin.home',compact('user'));
+        return view('admin.users',compact('user'));
     }
 
     public function editUser($id){
@@ -23,10 +23,16 @@ class AdminController extends Controller
     }
     public function updateUser(Request $request , $id){
         $user = $this->adminReposetorie->updateUser($request , $id);
-        return redirect('/admin');
+        return redirect('/users');
     }
     public function deleteUser($id){
         $this->adminReposetorie->deleteUser($id);
         return redirect()->back();
     }
+
+    public function createCategorie(Request $request){
+        $this->adminReposetorie->createCategorie($request);
+        return redirect()->back();
+    }
+
 }

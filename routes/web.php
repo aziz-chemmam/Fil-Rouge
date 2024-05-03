@@ -26,6 +26,7 @@ Route::get('/about', function () {
 })->name('about');
 
 
+
 Route::get('/Gallery', [GalleryController::class, 'imageDesplay'])->name('Gallery');
 
 
@@ -41,10 +42,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // admin route 
 
 Route::middleware(['role:admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'getUsers']);
-    Route::get('/admin/user/{id}', [AdminController::class, 'editUser'])->name('editUser');
-    Route::put('admin/update/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
-    Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
+    Route::get('/admin', function () {
+        return view('admin.home');
+    })->name('admin');
+    Route::get('/users', [AdminController::class, 'getUsers']);
+    Route::get('/users/user/{id}', [AdminController::class, 'editUser'])->name('editUser');
+    Route::put('users/update/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
+    Route::get('/users/delete/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+    Route::post('/admin',[AdminController::class , 'createCategorie'])->name('createCategorie');
 });
 
 // user route

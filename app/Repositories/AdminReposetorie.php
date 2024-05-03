@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Categories;
 use App\Models\User;
 use App\Repositories\Interfaces\AdminRepositorieInterface;
 use Illuminate\Http\Request;
@@ -39,5 +40,17 @@ class AdminReposetorie implements AdminRepositorieInterface
     public function deleteUser($id){
         $user = User::find($id);
         $user->delete();
+    }
+
+    public function createCategorie(Request $request){
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+        ]);
+        $categorie = new Categories();
+        $categorie->name = $request->input('name');
+        $categorie->description = $request->input('description');
+        $categorie->save();
+        return $categorie;
     }
 }

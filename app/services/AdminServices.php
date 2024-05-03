@@ -25,5 +25,9 @@ class AdminServices implements AdminServicesInterface{
     public function deleteUser($id){
         return $this->adminReposetorie->deleteUser($id);
     }
+
+    public function createCategorie(Request $request){
+        return $this->adminReposetorie->createCategorie($request);
+    }
 }
 

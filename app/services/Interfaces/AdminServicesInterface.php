@@ -9,5 +9,6 @@ interface AdminServicesInterface{
     public function editUser($id);
     public function updateUser(Request $request , $id);
     public function deleteUser($id);
+    public function createCategorie(Request $request);
 }
 
