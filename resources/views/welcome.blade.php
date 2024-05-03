@@ -29,17 +29,21 @@
                 </li>
             </ul>
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
-                <a href="{{ route('login') }}"><button
-                        class="px-4  py-2 rounded-l-xl text-white  bg-orange-600 hover:bg-orange-700 transition">Login</button></a>
-                <a href="{{ route('register') }}"><button
-                        class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100 ease-in-out duration-200 hover:text-black transition">Register</button></a>
-
-
+                @guest
+                    <a href="{{ route('login') }}"><button
+                            class="px-4  py-2 rounded-l-xl text-white bg-orange-600 hover:bg-orange-700 transition duration-200">Login</button></a>
+                    <a href="{{ route('register') }}"><button
+                            class="px-4 py-2 rounded-r-xl text-orange-700 bg-balck hover:bg-neutral-100 ease-in-out hover:text-black transition duration-300">Register</button></a>
+                @else
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                            class="px-4 py-2 rounded-xl text-orange-700 bg-black hover:bg-neutral-100 ease-in-out duration-200 hover:text-black transition">Logout</button>
+                    </form>
+                @endguest
+            </div>
         </nav>
-
-
     </div>
-
     {{-- introduction --}}
     <div class="mt-10 flex justify-center ">
         <div class="flex justify-between gap-10  h-full">
@@ -86,15 +90,17 @@
             @foreach ($publication as $publicationItem)
                 <div class="group relative">
                     <div class="relative">
-                        <img src="{{ $publicationItem->image }}" class="h-[25rem] w-[15rem] object-cover rounded-lg shadow-lg" alt="">
-                        <p class="absolute bottom-0 left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black bg-opacity-40 text-white p-1 rounded-md">
+                        <img src="{{ $publicationItem->image }}"
+                            class="h-[25rem] w-[15rem] object-cover rounded-lg shadow-lg" alt="">
+                        <p
+                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-black bg-opacity-40 text-white p-1 rounded-md">
                             {{ $publicationItem->localisation }}</p>
                     </div>
                 </div>
             @endforeach
         </div>
     </section>
-    
+
 
     {{-- footer --}}
 

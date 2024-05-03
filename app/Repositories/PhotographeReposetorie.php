@@ -62,7 +62,7 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
     {
         $publication = Publication::all();
         return $publication;
-    }
+    }   
 
     public function editPublication($id)
     {

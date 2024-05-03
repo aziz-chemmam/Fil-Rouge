@@ -38,7 +38,7 @@ class AuthReposetorie implements AuthReposetorieInterface
             if ($user->role === 'admin') {
                 return redirect('/admin');
             } else if ($user->role === 'user') {
-                return redirect('/user');
+                return redirect('/');
             } else if ($user->role === 'photographer') {
                 return redirect('/photographe');
             }

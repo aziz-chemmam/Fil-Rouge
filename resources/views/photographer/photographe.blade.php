@@ -27,10 +27,11 @@
             </ul>
         </div>
         <div>
-            <button id="logout"
-                class="block px-24 py-2.5  flex flex-end justify-center font-semibold  hover:bg-red-700  rounded-lg">
-                <a href="{{ route('home') }}">Logout</a>
-            </button>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                class="block px-24 py-2.5  flex flex-end justify-center font-semibold  hover:bg-red-700  rounded-lg">Logout</button>
+            </form>
         </div>
     </nav>
     <div class="w-full ">
@@ -102,7 +103,7 @@
                                     {{ $publicationItem->categorie_id }}
                                 </td>
                                 <td class="px-6 py-4 flex gap-5">
-                                    <a href="{{ route('updatePublication', $publicationItem->id) }}" id="btn"
+                                    <a href="{{ route('updatePublication', $publicationItem->id) }}" 
                                         class="font-medium text-green-600 hover:underline">Edit</a>
                                     <a href="{{ route('deletePublication', $publicationItem->id) }}"
                                         class="font-medium text-red-600 hover:underline">Delete</a>
