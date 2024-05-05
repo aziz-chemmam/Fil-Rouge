@@ -17,11 +17,15 @@
                 <div class="w-full gap-5">
                     <li>
                         <a class="block px-24 py-2.5  flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
-                            href="#">Acceille</a>
+                            href="{{ route('getCategorie') }}">Acceille</a>
                     </li>
                     <li>
                         <a class="block px-24 py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
-                            href="#">Users</a>
+                            href="{{ route('users') }}">Users</a>
+                    </li>
+                    <li>
+                        <a class="block px-24 py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
+                            href="{{ route('users') }}">Publication</a>
                     </li>
                 </div>
             </ul>
@@ -160,6 +164,9 @@
                 <thead class="text-xs text-white uppercase bg-orange-700  ">
                     <tr class="">
                         <th scope="col" class="px-6 py-3">
+                            Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Nom
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -179,6 +186,9 @@
                 <tbody>
                     @foreach ($user as $user)
                         <tr class="border-b text-white bg-black ">
+                            <th scope="row" class="px-6 py-4 font-medium">
+                                {{ $user->id }} 
+                            </th>
                             <th scope="row" class="px-6 py-4 font-medium">
                                 {{ $user->fname }} {{ $user->lname }}
                             </th>

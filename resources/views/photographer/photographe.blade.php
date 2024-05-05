@@ -90,9 +90,9 @@
                     <tbody>
                         @foreach ($publication as $publicationItem)
                             <tr class="border-b text-white bg-black ">
-                                <th scope="row" class="px-6 py-4 font-medium">
+                                <td scope="row" class="px-6 py-4 font-medium">
                                     <img src="{{ $publicationItem->image }}" class="w-7 h-7" alt="">
-                                </th>
+                                </td>
                                 <td class="px-6 py-4">
                                     {{ $publicationItem->localisation }}
                                 </td>
@@ -144,5 +144,5 @@
             </div>
         </div>
     </div>
-    @include('inc.editForm')
+   
 </div>

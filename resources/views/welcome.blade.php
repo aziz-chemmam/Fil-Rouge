@@ -13,7 +13,6 @@
 <body class="bg-black">
 
     {{-- navBar --}}
-
     <div class="text-white ml-36 flex place-content-around">
         <img src="{{ asset('image/logo.png') }}" class="w-24 h-24 mr-32" alt="">
         <nav class="flex gap-64">
@@ -56,16 +55,20 @@
                         Welcome to Goat Studio's Photography
                     </h1>
                     <p class="text-white text-center text-lg mb-6">
-                        Capture the essence of life through our lens. Our passion for photography turns ordinary moments into extraordinary masterpieces. Whether it's the soft glow of a sunset, the laughter of children, or the love shared between couples, we freeze these moments in time.
-                    </p>
-                    <p class="text-white text-center text-lg mb-6">
-                        Join us on a visual journey where images speak volumes and let our photographs weave tales of beauty, passion, and authenticity. Explore our portfolio and discover how we transform life's fleeting moments into timeless treasures.
-                    </p>
-                   <div class="flex justify-center">
-                    <button class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl px-8 py-3 text-white">
-                        Explore
-                    </button>
-                   </div>
+                        Step into a realm where the artistry of photography transcends mere images, where each frame
+                        captures a narrative waiting to be unveiled.
+                        Our photography gallery invites you to embark on a visual journey through the lens of
+                        creativity, where every click resonates with emotion,
+                        every scene whispers a tale, and every photograph is a window into a world of wonder. From
+                        breathtaking landscapes to intimate portraits, from candid moments to carefully crafted
+                        compositions, our curated collection showcases the diverse tapestry of life, inviting you to
+                        pause, reflect, and immerse yourself in the beauty of the human experience. </p>
+                    <div class="flex justify-center">
+                        <a href="{{ route('Gallery') }}"><button
+                            class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl px-8 py-3 text-white">
+                            Explore
+                        </button></a>
+                    </div>
                 </div>
             </div>
             <div>
@@ -73,8 +76,6 @@
             </div>
         </div>
     </div>
-    
-
     {{-- last upload --}}
     <section class="flex flex-col gap-14">
         <div class="flex justify-center">
@@ -96,10 +97,7 @@
             @endforeach
         </div>
     </section>
-
-
     {{-- footer --}}
-
     @extends('inc.footer')
 
 </body>

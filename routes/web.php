@@ -46,11 +46,15 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin', function () {
         return view('admin.home');
     })->name('admin');
-    Route::get('/users', [AdminController::class, 'getUsers']);
+    Route::get('/users', [AdminController::class, 'getUsers'])->name('users');
     Route::get('/users/user/{id}', [AdminController::class, 'editUser'])->name('editUser');
     Route::put('users/update/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
     Route::get('/users/delete/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
-    Route::post('/admin',[AdminController::class , 'createCategorie'])->name('createCategorie');
+    Route::post('/admin', [AdminController::class, 'createCategorie'])->name('createCategorie');
+    Route::get('/admin', [AdminController::class, 'getCategorie'])->name('getCategorie');
+    Route::get('/admin/editCategorie/{id}', [AdminController::class, 'editCategorie'])->name('editCategorie');
+    Route::put('/admin/updateCategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updateCategorie');
+    Route::get('/admin/delete/{id}', [AdminController::class, 'deleteCategorie'])->name('deleteCategorie');
 });
 
 // user route

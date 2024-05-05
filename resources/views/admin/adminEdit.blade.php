@@ -30,9 +30,9 @@
                     <div class="mt-4">
                         <select name="role"
                             class="inline-block w-full rounded-xl bg-white p-2.5 leading-none text-black">
-                            <option class="bg-orange-700 text-white" value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
-                            <option class="bg-orange-700 text-white" value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
-                            <option class="bg-orange-700 text-white" value="photographer" {{ $user->role === 'photographer' ? 'selected' : '' }}>Photographer</option>
+                            <option class="bg-orange-700 text-white" value="admin" {{ $user->role  }}>Admin</option>
+                            <option class="bg-orange-700 text-white" value="user" {{ $user->role }}>User</option>
+                            <option class="bg-orange-700 text-white" value="photographer" {{ $user->role }}>Photographer</option>
                         </select>
                     </div>
                     <button type="submit" class="mt-4 bg-orange-700 text-white rounded-xl p-2.5">Update</button>

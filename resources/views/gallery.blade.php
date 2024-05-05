@@ -22,7 +22,7 @@
 <div class="grid grid-cols-2 w-[85%] mx-auto mt-5 md:grid-cols-4 gap-4">
     @foreach ($publication as $publicationItem)
         <div>
-            <img class="h-auto max-w-full object-cover rounded-lg" src="{{ $publicationItem->image }}" alt="">
+            <img class="h-auto w-auto max-w-full object-cover rounded-lg" src="{{ $publicationItem->image }}" alt="">
             <p
                 class=" text-white p-1 flex justify-center">
                 {{ $publicationItem->localisation }}</p>

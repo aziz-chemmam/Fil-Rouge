@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Models\Categories;
 use App\Models\User;
-use App\Repositories\Interfaces\AdminRepositorieInterface;
+use App\Models\Categories;
+use App\Models\Publication;
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\AdminRepositorieInterface;
 
 class AdminReposetorie implements AdminRepositorieInterface
 {
@@ -21,7 +22,8 @@ class AdminReposetorie implements AdminRepositorieInterface
         $user = User::find($id);
         return $user;
     }
-    public function updateUser(Request $request , $id){
+    public function updateUser(Request $request, $id)
+    {
         $user = User::findOrFail($id);
         $request->validate([
             'lname' => 'string',
@@ -37,12 +39,14 @@ class AdminReposetorie implements AdminRepositorieInterface
         return $user;
     }
 
-    public function deleteUser($id){
+    public function deleteUser($id)
+    {
         $user = User::find($id);
         $user->delete();
     }
 
-    public function createCategorie(Request $request){
+    public function createCategorie(Request $request)
+    {
         $request->validate([
             'name' => 'required|string',
             'description' => 'required|string',
@@ -52,5 +56,40 @@ class AdminReposetorie implements AdminRepositorieInterface
         $categorie->description = $request->input('description');
         $categorie->save();
         return $categorie;
+    }
+
+    public function getCategorie()
+    {
+        $categorie = Categories::all();
+        return $categorie;
+    }
+
+    public function editCategorie($id)
+    {
+        $categorie = Categories::find($id);
+        return $categorie;
+    }
+
+    public function updateCategorie(Request $request, $id)
+    {
+        $categorie = Categories::findOrFail($id);
+        $request->validate([
+            'name' => 'string',
+            'description' => 'string',
+        ]);
+        $categorie->name = $request->input('name');
+        $categorie->description = $request->input('description');
+        $categorie->save();
+        return $categorie;
+    }
+
+    public function deleteCategorie($id)
+    {
+        $categorie = Categories::find($id);
+        $categorie->delete();
+    }
+    public function getPublication(){
+        $publication = Publication::all();
+        return $publication;
     }
 }

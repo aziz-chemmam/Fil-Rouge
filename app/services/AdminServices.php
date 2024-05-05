@@ -29,5 +29,21 @@ class AdminServices implements AdminServicesInterface{
     public function createCategorie(Request $request){
         return $this->adminReposetorie->createCategorie($request);
     }
+    public function getCategorie(){
+        return $this->adminReposetorie->getCategorie();
+    }
+
+    public function editCategorie($id){
+        return $this->adminReposetorie->editCategorie($id);
+    }
+    public function updateCategorie(Request $request , $id){
+        return $this->adminReposetorie->updateCategorie($request , $id);
+    }
+    public function deleteCategorie($id){
+        return $this->adminReposetorie->deleteCategorie($id);
+    }
+    public function getPublication(){
+        return $this->adminReposetorie->getPublication();
+    }
 }
 

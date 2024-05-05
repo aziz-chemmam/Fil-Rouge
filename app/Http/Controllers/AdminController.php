@@ -34,5 +34,26 @@ class AdminController extends Controller
         $this->adminReposetorie->createCategorie($request);
         return redirect()->back();
     }
+    public function getCategorie(){
+       $categorie = $this->adminReposetorie->getCategorie();
+        return view('admin.home',compact('categorie'));
+    }
+
+    public function editCategorie($id){
+        $categorie = $this->adminReposetorie->editCategorie($id);
+        return view('admin.editCategorie',compact('categorie'));
+    }
+    public function updateCategorie(Request $request , $id){
+        $this->adminReposetorie->updateCategorie($request , $id);
+        return redirect('/admin');
+    }
+    public function deleteCategorie($id){
+        $this->adminReposetorie->deleteCategorie($id);
+        return redirect()->back();
+    }
+    public function getPublication(){
+        $publication = $this->adminReposetorie->getPublication();
+        return view('admin.publication',compact('publication'));
+    }
 
 }

@@ -10,5 +10,10 @@ interface AdminServicesInterface{
     public function updateUser(Request $request , $id);
     public function deleteUser($id);
     public function createCategorie(Request $request);
+    public function getCategorie();
+    public function editCategorie($id);
+    public function updateCategorie(Request $request , $id);
+    public function deleteCategorie($id);
+    public function getPublication();
 }
 
