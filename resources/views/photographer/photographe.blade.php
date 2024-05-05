@@ -65,10 +65,10 @@
                 <img src="{{ asset('image/coeur.png') }}" class="w-12 h-12  self-center" alt="">
             </div>
         </div>
-        <div class="flex w-full justify-around py-32 text-center gap-10 ">
-            <div class="w-full">
-                <table class="w-full text-sm text-left rtl:text-right text-orange-500 dark:text-gray-400">
-                    <thead class="text-xs text-white uppercase bg-orange-700  ">
+        <div class="flex w-full justify-around py-32 text-center gap-10">
+            <div class="w-full max-h-96 mx-auto overflow-auto">
+                <table class="w-full text-sm text-left text-orange-500">
+                    <thead class="text-xs text-white uppercase bg-orange-700 sticky top-0">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Image
@@ -89,7 +89,7 @@
                     </thead>
                     <tbody>
                         @foreach ($publication as $publicationItem)
-                            <tr class="border-b text-white bg-black ">
+                            <tr class="border-b text-white bg-black">
                                 <td scope="row" class="px-6 py-4 font-medium">
                                     <img src="{{ $publicationItem->image }}" class="w-7 h-7" alt="">
                                 </td>
@@ -103,16 +103,15 @@
                                     {{ $publicationItem->categorie_id }}
                                 </td>
                                 <td class="px-6 py-4 flex gap-5">
-                                    <a href="{{ route('updatePublication', $publicationItem->id) }}" 
-                                        class="font-medium text-green-600 hover:underline">Edit</a>
-                                    <a href="{{ route('deletePublication', $publicationItem->id) }}"
-                                        class="font-medium text-red-600 hover:underline">Delete</a>
+                                    <a href="{{ route('editPublication', $publicationItem->id) }}" class="font-medium text-green-600 hover:underline">Edit</a>
+                                    <a href="{{ route('deletePublication', $publicationItem->id) }}" class="font-medium text-red-600 hover:underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+            
             <div class="w-full">
                 <form method="POST" action="{{ route('createPublication') }}"
                     class="bg-orange-700 p-6 rounded-lg shadow-md" enctype="multipart/form-data">

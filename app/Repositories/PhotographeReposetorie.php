@@ -60,7 +60,8 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
 
     public function getPublication()
     {
-        $publication = Publication::all();
+        $photographerId = Auth::id();
+        $publication = Publication::where('user_id', $photographerId)->get();
         return $publication;
     }   
 

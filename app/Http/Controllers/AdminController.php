@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\AdminRepositorieInterface;
 
 class AdminController extends Controller
@@ -55,5 +56,15 @@ class AdminController extends Controller
         $publication = $this->adminReposetorie->getPublication();
         return view('admin.publication',compact('publication'));
     }
+    public function deletePublication($id){
+        $this->adminReposetorie->deletePublication($id);
+        return redirect()->back();
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
+
 
 }

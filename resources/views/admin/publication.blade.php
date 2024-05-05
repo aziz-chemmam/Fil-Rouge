@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <a class="block px-24 py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
-                            href="{{ route('users') }}">Publication</a>
+                            href="{{ route('getPublication') }}">Publication</a>
                     </li>
                 </div>
             </ul>
@@ -33,9 +33,42 @@
         <div>
             <button id="logout"
                 class="block px-24 py-2.5  flex flex-end justify-center font-semibold  hover:bg-red-700  rounded-lg">
-                <a href="{{ route('logout') }}">Logout</a>
+                <a href="{{ route('adminLogout') }}">Logout</a>
             </button>
         </div>
     </nav>
+    <div class="w-[80%] h-[70%] my-auto mx-auto overflow-auto">
+        <table class="w-full text-sm text-left text-orange-500  ">
+            <thead class="text-xs text-white uppercase bg-orange-700 sticky top-0">
+                <tr>
+                    <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Image</th>
+                    <th class="px-6 py-3">Localisation</th>
+                    <th class="px-6 py-3">Description</th>
+                    <th class="px-6 py-3">Category name</th>
+                    <th class="px-6 py-3">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($publication as $publicationItem)
+                    <tr class="border-b text-white bg-black">
+                        <td class="px-6 py-4 font-medium">{{ $publicationItem->id }}</td>
+                        <td class="px-6 py-4 font-medium">
+                            <img class="w-14 h-20 object-cover rounded"src="{{ $publicationItem->image }}" alt="">
+                        </td>
+                        <td class="px-6 py-4">{{ $publicationItem->localisation }}</td>
+                        <td class="px-6 py-4">{{ $publicationItem->description }}</td>
+                        <td class="px-6 py-4">{{ $publicationItem->categorie_id }}</td>
+                        <td class="px-6 py-4 flex gap-5">
+                            <a href="{{ route('adminDelete', $publicationItem->id) }}"
+                                class="font-medium text-red-600 px-6 py-4 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
 
 </div>

@@ -55,6 +55,9 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/editCategorie/{id}', [AdminController::class, 'editCategorie'])->name('editCategorie');
     Route::put('/admin/updateCategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updateCategorie');
     Route::get('/admin/delete/{id}', [AdminController::class, 'deleteCategorie'])->name('deleteCategorie');
+    Route::get('/admin/publication', [AdminController::class, 'getPublication'])->name('getPublication');
+    Route::get('//admin/publication/delete/{id}', [AdminController::class , 'deletePublication'])->name('adminDelete');
+    Route::get('/admin/logout', [AdminController::class , 'logout'])->name('adminLogout');
 });
 
 // user route
@@ -65,9 +68,7 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:photographer'])->group(function () {
     Route::get('/photographe', [PhotographerrController::class, 'getPublication']);
     Route::post('/photographe', [PhotographerrController::class, 'createPublication'])->name('createPublication');
+    Route::get('/publication/{id}', [PhotographerrController::class, 'editPublication'])->name('editPublication');
+    Route::put('/publication/update/{id}', [PhotographerrController::class, 'updatePublication'])->name('updatePublication');
+    Route::get('/publication/delete/{id}', [PhotographerrController::class, 'deletePublication'])->name('deletePublication');
 });
-
-
-Route::get('/publication/{id}', [PhotographerrController::class, 'editPublication'])->name('editPublication');
-Route::put('/publication/update/{id}', [PhotographerrController::class, 'updatePublication'])->name('updatePublication');
-Route::get('/publication/delete/{id}', [PhotographerrController::class, 'deletePublication'])->name('deletePublication');

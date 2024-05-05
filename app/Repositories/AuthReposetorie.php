@@ -43,6 +43,9 @@ class AuthReposetorie implements AuthReposetorieInterface
                 return redirect('/photographe');
             }
         }
+        else{
+            return redirect('/login');
+        }
     }
 
     public function logout()

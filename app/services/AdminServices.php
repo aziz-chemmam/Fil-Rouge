@@ -45,5 +45,11 @@ class AdminServices implements AdminServicesInterface{
     public function getPublication(){
         return $this->adminReposetorie->getPublication();
     }
+    public function deletePublication($id){
+        return $this->adminReposetorie->deletePublication($id);
+    }
+    public function logout(){
+        return $this->adminReposetorie->logout();
+    }
 }
 

@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <a class="block px-24 py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
-                            href="{{ route('users') }}">Publication</a>
+                            href="{{ route('getPublication') }}">Publication</a>
                     </li>
                 </div>
             </ul>
@@ -33,7 +33,7 @@
         <div>
             <button id="logout"
                 class="block px-24 py-2.5  flex flex-end justify-center font-semibold  hover:bg-red-700  rounded-lg">
-                <a href="{{ route('logout') }}">Logout</a>
+                <a href="{{ route('adminLogout') }}">Logout</a>
             </button>
         </div>
     </nav>

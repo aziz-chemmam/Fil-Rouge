@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Categories;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\AdminRepositorieInterface;
 
 class AdminReposetorie implements AdminRepositorieInterface
@@ -91,5 +92,13 @@ class AdminReposetorie implements AdminRepositorieInterface
     public function getPublication(){
         $publication = Publication::all();
         return $publication;
+    }
+    public function deletePublication($id){
+        $publication = Publication::find($id);
+        $publication->delete();
+    }
+    public function logout()
+    {
+        Auth::logout();
     }
 }

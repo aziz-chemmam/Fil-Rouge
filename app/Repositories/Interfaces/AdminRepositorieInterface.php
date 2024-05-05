@@ -16,4 +16,6 @@ interface AdminRepositorieInterface
     public function updateCategorie(Request $request , $id);
     public function deleteCategorie($id);
     public function getPublication();
+    public function deletePublication($id);
+    public function logout();
 }
