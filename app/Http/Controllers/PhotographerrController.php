@@ -24,11 +24,6 @@ class PhotographerrController extends Controller
         $this->photographerReposetorie->createPublication($request);
         return redirect()->back();
 }
-     public function getPublication(){
-        $publication = $this->photographerReposetorie->getPublication();
-        return view('photographer.photographe',compact('publication'));
-    }
-
     public function editPublication($id){
         $publication = $this->photographerReposetorie->editPublication($id);
         return view('photographer.editDashboard' , compact('publication'));
@@ -48,5 +43,13 @@ class PhotographerrController extends Controller
         $publication = $this->photographerReposetorie->lastAplouad();
         return view('welcome',compact('publication'));
     }
+    public function getPublication(){
+
+        $data = $this->photographerReposetorie->getPublication();
+        $publication = $data['publication'];
+        $categorie = $data['categorie'];
+        return view('photographer.photographe',compact('publication','categorie'));
+    }
+
 
 }

@@ -34,6 +34,5 @@ class photographeServices implements photographeServiceInterface{
     public function lastAplouad(){
         return $this->photographerReposetorie->lastAplouad();
     }
+ 
 }
-
-?>

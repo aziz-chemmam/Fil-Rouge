@@ -13,18 +13,15 @@
 <body class="bg-black">
 
     {{-- navBar --}}
-    <div class="text-white ml-36 flex place-content-around">
-        <img src="{{ asset('image/logo.png') }}" class="w-24 h-24 mr-32" alt="">
+    <div class="text-white flex place-content-around">
+        <img src="{{ asset('image/logo.png') }}" class="w-24 h-24 " alt="">
         <nav class="flex gap-64">
-            <ul class="flex mt-8 gap-52  font-bold  ">
-                <li class="hover:text-orange-700 ease-in-out duration-300  active:text-white"><a href="#">HOME</a>
+            <ul class="flex mt-8 gap-24 mr-48  font-bold  ">
+                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
+                        href="{{ route('home') }}">HOME</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
-                        href="{{ route('Gallery') }}">GALLERY</a></li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
-                        href="{{ route('about') }}">ABOUT</a>
-                </li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">FAQ</a>
+                        href="{{ route('Gallery') }}">GALLERY</a>
                 </li>
             </ul>
             <div class=" h-fit mt-6 flex ml-28 text-[0.85rem] font-medium">
@@ -65,9 +62,9 @@
                         pause, reflect, and immerse yourself in the beauty of the human experience. </p>
                     <div class="flex justify-center">
                         <a href="{{ route('Gallery') }}"><button
-                            class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl px-8 py-3 text-white">
-                            Explore
-                        </button></a>
+                                class="bg-black border-[0.2rem] border-orange-700 hover:bg-orange-700 active:bg-black transition duration-300 ease-in-out rounded-xl px-8 py-3 text-white">
+                                Explore
+                            </button></a>
                     </div>
                 </div>
             </div>

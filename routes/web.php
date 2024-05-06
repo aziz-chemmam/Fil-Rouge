@@ -25,6 +25,12 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/imagde', function () {
+    return view('user.image');
+})->name('image');
+
+
+
 
 
 Route::get('/Gallery', [GalleryController::class, 'imageDesplay'])->name('Gallery');
@@ -61,6 +67,11 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 // user route
+Route::middleware(['role:user'])->group(function (){
+    Route::get('/publicationView/{id}',[UserController::class, 'getPublicationAndComments'])->name('getPublicationAndComments');
+    Route::post('/publicationView/{id}',[UserController::class, 'comntPublication'])->name('comntPublication');
+    Route::get('generate-pdf/{id}', [UserController::class, 'uplouadImage'])->name('generatePdf');
+});
 
 
 

@@ -16,12 +16,8 @@
             <ul class="space-y-4 flex flex-col w-full justify-between">
                 <div class="w-full gap-5">
                     <li>
-                        <a class="block px-14 py-2.5  flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
+                        <a class="block px-24 py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
                             href="#">Acceille</a>
-                    </li>
-                    <li>
-                        <a class="block  py-2.5 flex justify-center font-semibold  hover:bg-orange-700  rounded-lg"
-                            href="#">Mes Photos </a>
                     </li>
                 </div>
             </ul>
@@ -35,36 +31,6 @@
         </div>
     </nav>
     <div class="w-full ">
-        <div class="flex justify-around py-5 w-full mx-auto gap-10">
-            <div class="bg-red-600 rounded-xl shadow shadow-red-700 flex justify-around w-96 h-24 ">
-                <div class="self-center">
-                    <h1>Nº Total Des J'aime</h1>
-                    <p class="flex justify-center">100</p>
-                </div>
-                <img src="{{ asset('image/coeur.png') }}" class="w-12 h-12  self-center" alt="">
-            </div>
-            <div class="bg-red-600 rounded-xl shadow shadow-red-700 flex justify-around w-96 h-24 ">
-                <div class="self-center">
-                    <h1>Nº Total Des J'aime</h1>
-                    <p class="flex justify-center">100</p>
-                </div>
-                <img src="{{ asset('image/coeur.png') }}" class="w-12 h-12  self-center" alt="">
-            </div>
-            <div class="bg-red-600 rounded-xl shadow shadow-red-700 flex justify-around w-96 h-24 ">
-                <div class="self-center">
-                    <h1>Nº Total Des J'aime</h1>
-                    <p class="flex justify-center">100</p>
-                </div>
-                <img src="{{ asset('image/coeur.png') }}" class="w-12 h-12  self-center" alt="">
-            </div>
-            <div class="bg-red-600 rounded-xl shadow shadow-red-700 flex justify-around w-96 h-24 ">
-                <div class="self-center">
-                    <h1>Nº Total Des J'aime</h1>
-                    <p class="flex justify-center">100</p>
-                </div>
-                <img src="{{ asset('image/coeur.png') }}" class="w-12 h-12  self-center" alt="">
-            </div>
-        </div>
         <div class="flex w-full justify-around py-32 text-center gap-10">
             <div class="w-full max-h-96 mx-auto overflow-auto">
                 <table class="w-full text-sm text-left text-orange-500">
@@ -100,7 +66,7 @@
                                     {{ $publicationItem->description }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $publicationItem->categorie_id }}
+                                    {{ $publicationItem->category->name }}
                                 </td>
                                 <td class="px-6 py-4 flex gap-5">
                                     <a href="{{ route('editPublication', $publicationItem->id) }}" class="font-medium text-green-600 hover:underline">Edit</a>
@@ -117,11 +83,14 @@
                     class="bg-orange-700 p-6 rounded-lg shadow-md" enctype="multipart/form-data">
                     @csrf
                     <label for="file" class="block mb-2 text-sm font-medium text-white">Categories</label>
-                    <select id="underline_select" name="categorie_id"
-                        class="block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option selected disabled>Choix de Categorie</option>
-                        <option value="1">1</option>
-                    </select>
+                  <select id="underline_select" name="categorie_id"
+                  class="block w-full py-2.5 px-4 mb-4 leading-tight text-gray-700 bg-white border border-gray-400 rounded-md focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option selected disabled>Choix de Categorie</option>
+                  @foreach ($categorie as $categorieItem )
+                  <option value="{{ $categorieItem->id }}">{{ $categorieItem->name }}</option>
+                  @endforeach
+              </select>
+                  
 
                     <label for="file" class="block mb-2 text-sm font-medium text-white">Upload file</label>
                     <input type="file" id="file" name="image"

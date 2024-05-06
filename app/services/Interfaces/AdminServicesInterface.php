@@ -17,5 +17,6 @@ interface AdminServicesInterface{
     public function getPublication();
     public function deletePublication($id);
     public function logout();
+    
 }
 

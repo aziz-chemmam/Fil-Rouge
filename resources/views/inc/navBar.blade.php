@@ -9,12 +9,7 @@
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="{{ route('home') }}">HOME</a>
                 </li>
                 <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="{{ route('Gallery') }}">GALLERY</a>
-                </li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a
-                        href="{{ route('about') }}">ABOUT</a>
-                </li>
-                <li class="hover:text-orange-700 ease-in-out duration-300 active:text-white"><a href="#">FAQ</a>
-                </li>
+               
             </ul>
         </nav>
     </div>

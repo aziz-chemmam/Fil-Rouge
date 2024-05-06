@@ -19,6 +19,10 @@ use App\Repositories\Interfaces\AuthReposetorieInterface;
 use App\Repositories\Interfaces\AdminRepositorieInterface;
 use App\Repositories\Interfaces\PhotographeRepoInterfaces;
 use App\Repositories\Interfaces\GalleryReposetorieInterface;
+use App\Repositories\Interfaces\UserReposetorieInterface;
+use App\Repositories\UserReposetorie;
+use App\Services\Interfaces\UserServicesInterface;
+use App\Services\UserServices;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(GalleryServicesIntreface::class, GalleryServices::class);
         $this->app->bind(GalleryReposetorieInterface::class, GalleryReposetorie::class);
+
+        $this->app->bind(UserServicesInterface::class, UserServices::class);
+        $this->app->bind(UserReposetorieInterface::class, UserReposetorie::class);
     }
 
     /**

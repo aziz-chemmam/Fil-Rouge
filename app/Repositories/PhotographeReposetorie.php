@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Categories;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 use Cloudinary\Api\Upload\UploadApi;
@@ -58,12 +59,7 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         $publication->save();
     }
 
-    public function getPublication()
-    {
-        $photographerId = Auth::id();
-        $publication = Publication::where('user_id', $photographerId)->get();
-        return $publication;
-    }   
+
 
     public function editPublication($id)
     {
@@ -100,4 +96,14 @@ class PhotographeReposetorie implements PhotographeRepoInterfaces
         $publication = Publication::latest()->take(5)->get();
         return $publication;
     }
+
+    public function getPublication()
+    {
+        $photographerId = Auth::id();
+        $publication = Publication::where('user_id', $photographerId)->get();
+        $categorie = Categories::all();
+        return compact('publication','categorie');
+    }   
+
+  
 }

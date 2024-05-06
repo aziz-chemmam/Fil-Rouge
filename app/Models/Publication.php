@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Categories;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Publication extends Model
 {
@@ -20,4 +22,10 @@ class Publication extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::class, 'categorie_id');
+    }
+   
 }
